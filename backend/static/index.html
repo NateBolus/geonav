@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan2Ground | Geo Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="brand">
+        <img src="/static/logo.png" class="logo">
+        <span>Plan2Ground</span>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>Survey Tools</h2>
+
+        <input type="file" id="planUpload" />
+        <button onclick="uploadPlan()">Upload Plan</button>
+
+        <hr>
+
+        <button onclick="startGeoref()">Start Georeferencing</button>
+        <button onclick="startDigitise()">Digitise Parcel</button>
+        <button onclick="exportParcel()">Export Coordinates</button>
+
+    </div>
+
+    <div id="map"></div>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

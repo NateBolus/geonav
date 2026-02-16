@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parcel Viewer</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+  const map = L.map("map").setView([5.6, -0.2], 14);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap"
+  }).addTo(map);
+
+  fetch("parcel.geojson")
+    .then(r => r.json())
+    .then(data => {
+      L.geoJSON(data).addTo(map);
+      map.fitBounds(L.geoJSON(data).getBounds());
+    });
+</script>
+
+</body>
+</html>
